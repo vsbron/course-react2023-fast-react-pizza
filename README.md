@@ -13,4 +13,4 @@
 
 ## Live version
 
-https://vsbron-course-react2023-fast-react-pizza.netlify.app
+https://vsbron-course-react2023-fast-pizza.netlify.app
