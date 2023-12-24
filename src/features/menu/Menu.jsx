@@ -5,7 +5,7 @@ import MenuItem from "./MenuItem";
 import { getMenu } from "../../services/apiRestaurant";
 
 function Menu() {
-  // Gettring the fetched data from the loader
+  // Getting the fetched data from the loader
   const menu = useLoaderData();
 
   return (
