@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, redirect } from "react-router-dom";
+import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
 
 // https://uibakery.io/regex-library/phone-number
@@ -36,6 +36,12 @@ function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
   const cart = fakeCart;
 
+  const navigation = useNavigation(); // Getting the navigation state
+  const isSubmitting = navigation.state === "submitting"; // Checking if app is currently submitting
+
+  // Getting the action's data by using custom hook
+  const formErrors = useActionData();
+
   return (
     <div>
       <h2>Ready to order? Let's go!</h2>
@@ -50,6 +56,8 @@ function CreateOrder() {
           <label>Phone number</label>
           <div>
             <input type="tel" name="phone" required />
+            {/* Display error message if there's an error in the action's data */}
+            {formErrors?.phone && <p>{formErrors.phone}</p>}
           </div>
         </div>
 
@@ -72,8 +80,11 @@ function CreateOrder() {
         </div>
 
         <div>
+          {/* Converting the cart to the string */}
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button>Order now</button>
+          <button disabled={isSubmitting}>
+            {isSubmitting ? "Placing order..." : "Order now"}
+          </button>
         </div>
       </Form>
     </div>
@@ -92,7 +103,18 @@ export async function action({ request }) {
     priority: data.priority === "on", // Priority, should be boolean
   };
 
-  // Sending the order with all the details to the API
+  // Creating an empty object of errors
+  const errors = {};
+
+  // Checking whether the phone number is valid. If not, adding to the errors object
+  if (!isValidPhone(order.phone))
+    errors.phone =
+      "Please give us your correct phone number. We might need it to contact you.";
+
+  // If errors object has at least 1 variable, return it
+  if (Object.keys(errors).length > 0) return errors;
+
+  // If everything's okay - sending the order with all the details to the API
   const newOrder = await createOrder(order);
 
   // Redirecting user to the order tracking page
