@@ -9,7 +9,7 @@ function Menu() {
   const menu = useLoaderData();
 
   return (
-    <ul>
+    <ul className="divide-y divide-stone-200 px-2">
       {/* Going through the menu and calling MenuItem component on each element  */}
       {menu.map((pizza) => (
         <MenuItem pizza={pizza} key={pizza.id} />
