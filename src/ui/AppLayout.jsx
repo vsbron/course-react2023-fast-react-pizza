@@ -16,6 +16,7 @@ function AppLayout() {
     <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       {/* Display the loader if the navigation is in Loading state */}
       {isLoading && <Loader />}
+
       <Header />
       <div className="overflow-scroll">
         <main className="mx-auto max-w-3xl">
