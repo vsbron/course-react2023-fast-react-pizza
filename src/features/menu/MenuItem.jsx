@@ -1,8 +1,9 @@
 import { formatCurrency } from "../../utils/helpers";
 
 import Button from "../../ui/Button";
-import { useDispatch } from "react-redux";
-import { addItem } from "../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
+import DeleteItem from "../cart/DeleteItem";
 
 function MenuItem({ pizza }) {
   // Destructuring the pizza object
@@ -11,11 +12,15 @@ function MenuItem({ pizza }) {
   // Getting the dispatch function from Redux
   const dispatch = useDispatch();
 
+  // Checking if this pizza is already in the cart
+  const currentQuantity = useSelector(getCurrentQuantityById(id));
+  const isInCart = currentQuantity > 0;
+
   // Add to cart handler function
   function handleAddToCart() {
     // Creating the new item pizza object
     const newItem = {
-      pizzaId: id,
+      id,
       name,
       quantity: 1,
       unitPrice,
@@ -44,13 +49,19 @@ function MenuItem({ pizza }) {
           ) : (
             <p className="font-medium uppercase text-stone-500">Sold out</p>
           )}
-          <Button
-            type="small"
-            onClick={handleAddToCart}
-            disabled={soldOut && "disabled"}
-          >
-            {!soldOut ? "Add to cart" : "Out of stock"}
-          </Button>
+
+          {/* Conditional rendering. Delete from cart or add to cart button. Depends on whether it's already in the cart */}
+          {isInCart ? (
+            <DeleteItem id={id} />
+          ) : (
+            <Button
+              type="small"
+              onClick={handleAddToCart}
+              disabled={soldOut && "disabled"}
+            >
+              {!soldOut ? "Add to cart" : "Out of stock"}
+            </Button>
+          )}
         </div>
       </div>
     </li>
