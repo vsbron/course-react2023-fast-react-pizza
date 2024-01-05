@@ -2,15 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Creating initial state for the redux store
 const initialState = {
-  cart: [
-    {
-      pizzaId: 12,
-      name: "Mediterranean",
-      quantity: 2,
-      unitPrice: 16,
-      totalPrice: 32,
-    },
-  ],
+  cart: [],
+
+  // cart: [
+  //   {
+  //     pizzaId: 12,
+  //     name: "Mediterranean",
+  //     quantity: 1,
+  //     unitPrice: 16,
+  //     totalPrice: 16,
+  //   },
+  // ],
 };
 
 // Creating the cart slice
@@ -64,3 +66,10 @@ export const {
 
 // Exporting the reducers as default
 export default cartSlice.reducer;
+
+// Adding the quantity and total price calculations functions here (selectors)
+//// "reselect" library can be used here to optimize these selectors in the larger apps
+export const getTotalCartQuantity = (state) =>
+  state.cart.cart.reduce((sum, item) => (sum += item.quantity), 0);
+export const getTotalCartPrice = (state) =>
+  state.cart.cart.reduce((sum, item) => (sum += item.totalPrice), 0);
