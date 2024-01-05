@@ -67,9 +67,16 @@ export const {
 // Exporting the reducers as default
 export default cartSlice.reducer;
 
-// Adding the quantity and total price calculations functions here (selectors)
+// Selector functions to get the data from the Redux
 //// "reselect" library can be used here to optimize these selectors in the larger apps
+
+// Getting the cart
+export const getCart = (state) => state.cart.cart;
+
+// Getting the total quantity of items in the cart
 export const getTotalCartQuantity = (state) =>
   state.cart.cart.reduce((sum, item) => (sum += item.quantity), 0);
+
+// Getting the total price of the items in the cart
 export const getTotalCartPrice = (state) =>
   state.cart.cart.reduce((sum, item) => (sum += item.totalPrice), 0);

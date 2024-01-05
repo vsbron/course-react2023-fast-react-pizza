@@ -5,7 +5,8 @@ SPA that allows to order pizzas from the menu.
 ## Features
 
 - The menu of pizzas;
-- Ability to search for the specific order;
+- Option to search for the specific order details;
+- Adding Pizzas to the cart, where the total quantity and the price will be calculated;
 
 ## Details
 

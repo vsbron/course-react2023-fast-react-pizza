@@ -22,6 +22,13 @@ export const { updateName } = userSlice.actions;
 // Exporting the reducers as default
 export default userSlice.reducer;
 
+// Selector functions to get the data from the Redux
+//// "reselect" library can be used here to optimize these selectors in the larger apps
+
+// Getting the username
+export const getUsername = (state) => state.user.username;
+
+/******************************************* */
 /*
 function getPosition() {
   return new Promise(function (resolve, reject) {
