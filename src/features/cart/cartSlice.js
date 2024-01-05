@@ -47,6 +47,9 @@ const cartSlice = createSlice({
       // Decreasing quantity and calculating total price
       item.quantity--;
       item.totalPrice = item.unitPrice * item.quantity;
+
+      // If quantity is lowered to 0, the item gets deeleted from the cart by calling deleteItem reducer
+      if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
     // Clearing the cart
     clearCart(state) {

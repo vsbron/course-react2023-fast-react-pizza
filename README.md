@@ -8,6 +8,7 @@ SPA that allows to order pizzas from the menu.
 - Option to search for the specific order details;
 - Adding Pizzas to the cart, where the total quantity and the price will be calculated;
 - Pizza could be deleted from the cart individually or all at once;
+- The quantities of the pizzas can be changed in the cart;
 
 ## Details
 
