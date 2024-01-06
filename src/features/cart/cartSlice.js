@@ -6,7 +6,7 @@ const initialState = {
 
   // cart: [
   //   {
-  //     id: 12,
+  //     pizzaId: 12,
   //     name: "Mediterranean",
   //     quantity: 1,
   //     unitPrice: 16,
@@ -27,13 +27,13 @@ const cartSlice = createSlice({
     },
     // Removing item from the cart
     deleteItem(state, action) {
-      // Payload = id
-      state.cart = state.cart.filter((item) => item.id !== action.payload);
+      // Payload = pizzaId
+      state.cart = state.cart.filter((item) => item.pizzaId !== action.payload);
     },
     // Increasing the quantity of the item
     increaseItemQuantity(state, action) {
-      // Payload = id
-      const item = state.cart.find((item) => item.id === action.payload);
+      // Payload = pizzaId
+      const item = state.cart.find((item) => item.pizzaId === action.payload);
 
       // Increasing quantity and calculating total price
       item.quantity++;
@@ -41,8 +41,8 @@ const cartSlice = createSlice({
     },
     // Decreasing the quantity of the item
     decreaseItemQuantity(state, action) {
-      // Payload = id
-      const item = state.cart.find((item) => item.id === action.payload);
+      // Payload = pizzaId
+      const item = state.cart.find((item) => item.pizzaId === action.payload);
 
       // Decreasing quantity and calculating total price
       item.quantity--;
@@ -78,7 +78,7 @@ export const getCart = (state) => state.cart.cart;
 
 // Getting the quantity of specific pizza
 export const getCurrentQuantityById = (id) => (state) =>
-  state.cart.cart.find((item) => item.id === id)?.quantity ?? 0;
+  state.cart.cart.find((item) => item.pizzaId === id)?.quantity ?? 0;
 
 // Getting the total quantity of items in the cart
 export const getTotalCartQuantity = (state) =>

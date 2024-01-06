@@ -4,11 +4,13 @@ SPA that allows to order pizzas from the menu.
 
 ## Features
 
-- The menu of pizzas;
-- Option to search for the specific order details;
-- Adding Pizzas to the cart, where the total quantity and the price will be calculated;
-- Pizza could be deleted from the cart individually or all at once;
-- The quantities of the pizzas can be changed in the cart;
+- The menu of delicious pizzas;
+- Adding pizzas to the cart and adjusting its quantity;
+- Delete the pizza you don't want, or clear the entire cart entirely;
+- All the changes of pizzas in the cart will update the total price accordingly;
+- Mark your orders with "Priority Status" to get it faster (20% of the price will be added to a total price);
+- Place your order by filling out your details and get an unique order ID;
+- Search for your order with an ID to get its current status;
 
 ## Details
 

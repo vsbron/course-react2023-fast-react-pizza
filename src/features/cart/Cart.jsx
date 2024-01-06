@@ -26,13 +26,13 @@ function Cart() {
 
       <ul className="mt-3 divide-y divide-stone-200 border-b">
         {cart.map((item) => (
-          <CartItem item={item} key={item.id} />
+          <CartItem item={item} key={item.pizzaId} />
         ))}
       </ul>
 
       <div className="mt-6 space-x-2">
         <Button type="primary" to="/order/new">
-          &larr; Order pizzas
+          Order pizzas &rarr;
         </Button>
         <Button type="secondary" onClick={() => dispatch(clearCart())}>
           Clear cart
