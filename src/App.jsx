@@ -9,6 +9,7 @@ import Menu, { loader as menuLoader } from "./features/menu/Menu";
 import CreateOrder, {
   action as createOrderAction,
 } from "./features/order/CreateOrder";
+import { action as orderAction } from "./features/order/UpdateOrder";
 import Order, { loader as orderLoader } from "./features/order/Order";
 
 // Creating the routes
@@ -31,7 +32,12 @@ const router = createBrowserRouter([
         element: <CreateOrder />,
         action: createOrderAction,
       },
-      { path: "/order/:orderId", element: <Order />, loader: orderLoader },
+      {
+        path: "/order/:orderId",
+        element: <Order />,
+        loader: orderLoader,
+        action: orderAction,
+      },
     ],
   },
 ]);

@@ -12,6 +12,7 @@ SPA that allows to order pizzas from the menu.
 - Place your order by filling out your details and get an unique order ID;
 - Get your address automatically by clicking Get Position button;
 - Search for your order with an ID to get its current status;
+- Add a "Priority" to your order, that's already have been placed;
 
 ## Details
 
