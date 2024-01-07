@@ -20,6 +20,7 @@ SPA that allows to order pizzas from the menu.
 - Styles are handled with Tailwind CSS;
 - State is handled by Redux;
 - Geolocation is handled by Async Redux Thunk;
+- Order page fetches pizza's ingredients;
 
 ## Live version
 

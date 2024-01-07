@@ -4,9 +4,9 @@ import UpdateItemQuantity from "./UpdateItemQuantity";
 import { useSelector } from "react-redux";
 import { getCurrentQuantityById } from "./cartSlice";
 
-function CartItem({ item }) {
+function CartItem({ item, index }) {
   // Destructuring the item from the prop
-  const { pizzaId, name, quantity, totalPrice } = item;
+  const { pizzaId, name, totalPrice } = item;
 
   // Getting the current quantity from Redux selector
   const currentQuantity = useSelector(getCurrentQuantityById(pizzaId));
@@ -14,7 +14,7 @@ function CartItem({ item }) {
   return (
     <li className="py-3 sm:flex sm:items-center sm:justify-between">
       <p className="mb-1 sm:mb-0">
-        {quantity}&times; {name}
+        {index}. {name}
       </p>
       <div className="flex items-center sm:gap-6">
         <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
