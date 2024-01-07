@@ -10,6 +10,7 @@ SPA that allows to order pizzas from the menu.
 - All the changes of pizzas in the cart will update the total price accordingly;
 - Mark your orders with "Priority Status" to get it faster (20% of the price will be added to a total price);
 - Place your order by filling out your details and get an unique order ID;
+- Get your address automatically by clicking Get Position button;
 - Search for your order with an ID to get its current status;
 
 ## Details
@@ -18,6 +19,7 @@ SPA that allows to order pizzas from the menu.
 - Loaders, loading indicators, form submission and errors are handled by React Router v6.4;
 - Styles are handled with Tailwind CSS;
 - State is handled by Redux;
+- Geolocation is handled by Async Redux Thunk;
 
 ## Live version
 
