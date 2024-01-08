@@ -3,6 +3,7 @@ import CartOverview from "../features/cart/CartOverview";
 
 import Header from "./Header";
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 function AppLayout() {
   // Getting the navigation state from useNavigation hook
@@ -25,6 +26,7 @@ function AppLayout() {
       </div>
 
       <CartOverview />
+      <Footer />
     </div>
   );
 }

@@ -9,7 +9,7 @@ function UpdateOrder({ order }) {
   return (
     // Fetcher form will update (revalidate) the page after order will get the change
     <fetcher.Form method="PATCH" className="text-right">
-      <Button type="primary">Make pariority</Button>
+      <Button type="primary">Make priority</Button>
     </fetcher.Form>
   );
 }
