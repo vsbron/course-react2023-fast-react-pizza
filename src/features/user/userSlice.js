@@ -24,7 +24,7 @@ const userSlice = createSlice({
       // Pending state, when waiting for data
       .addCase(fetchAddress.pending, (state) => {
         state.status = "loading";
-      })
+      }) 
       // Fulfilled state, when promise is returned
       .addCase(fetchAddress.fulfilled, (state, action) => {
         state.position = action.payload.position;
@@ -32,7 +32,7 @@ const userSlice = createSlice({
         state.status = "idle";
       })
       // Rejected state, when there was an error
-      .addCase(fetchAddress.rejected, (state, action) => {
+      .addCase(fetchAddress.rejected, (state) => {
         state.status = "error";
         state.error = "There was a problem getting your address";
       }),

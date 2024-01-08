@@ -53,7 +53,7 @@ function MenuItem({ pizza }) {
 
           {/* Conditional rendering. Delete from cart or add to cart button. Depends on whether it's already in the cart */}
           {isInCart ? (
-            <div className="flex items-center gap-3 sm:gap-8">
+            <div className="flex items-center gap-2 sm:gap-8">
               <UpdateItemQuantity
                 pizzaId={id}
                 currentQuantity={currentQuantity}

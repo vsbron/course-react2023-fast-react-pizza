@@ -52,10 +52,12 @@ function CreateOrder() {
 
   return (
     <div className="px-4 py-6">
-      <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
+      <h2 className="mb-4 text-xl font-semibold sm:mb-8">
+        Ready to order? Let's go!
+      </h2>
 
       <Form method="POST">
-        <div className="sm:items-flex-start mb-5 flex flex-col gap-2 sm:flex-row">
+        <div className="sm:items-flex-start mb-3 flex flex-col gap-1 sm:mb-5 sm:flex-row sm:gap-2">
           <label className="mt-2.5 sm:basis-40">First Name</label>
           <input
             type="text"
@@ -66,7 +68,7 @@ function CreateOrder() {
           />
         </div>
 
-        <div className="sm:items-flex-start mb-5 flex flex-col gap-2 sm:flex-row">
+        <div className="sm:items-flex-start mb-3 flex flex-col gap-1 sm:mb-5 sm:flex-row sm:gap-2">
           <label className="mt-2.5 sm:basis-40 ">Phone number</label>
           <div className="grow">
             <input type="tel" name="phone" className="input w-full" required />
@@ -79,7 +81,7 @@ function CreateOrder() {
           </div>
         </div>
 
-        <div className="sm:items-flex-start relative mb-5 flex flex-col gap-2 sm:flex-row">
+        <div className="sm:items-flex-start relative mb-3 flex flex-col gap-1 sm:mb-5 sm:flex-row sm:gap-2">
           <label className="mt-2.5 sm:basis-40 ">Address</label>
           <div className="grow">
             <input
@@ -122,7 +124,10 @@ function CreateOrder() {
             value={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority" className="font-medium">
+          <label
+            htmlFor="priority"
+            className="text-sm font-medium sm:text-base"
+          >
             Want to give your order priority?
           </label>
         </div>

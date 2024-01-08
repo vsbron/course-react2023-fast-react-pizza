@@ -1,12 +1,13 @@
 import { useFetcher } from "react-router-dom";
-import Button from "../../ui/Button";
+
 import { updateOrder } from "../../services/apiRestaurant";
+import Button from "../../ui/Button";
 
 function UpdateOrder({ order }) {
   const fetcher = useFetcher();
 
   return (
-    // Fetcher form will update the page after order will get the change
+    // Fetcher form will update (revalidate) the page after order will get the change
     <fetcher.Form method="PATCH" className="text-right">
       <Button type="primary">Make pariority</Button>
     </fetcher.Form>

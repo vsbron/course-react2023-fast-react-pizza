@@ -12,12 +12,14 @@ function CartItem({ item, index }) {
   const currentQuantity = useSelector(getCurrentQuantityById(pizzaId));
 
   return (
-    <li className="py-3 sm:flex sm:items-center sm:justify-between">
+    <li className="flex flex-col py-3 sm:flex-row sm:items-center sm:justify-between">
       <p className="mb-1 sm:mb-0">
         {index}. {name}
       </p>
-      <div className="flex items-center sm:gap-6">
-        <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
+      <div className="flex items-center gap-3 sm:gap-6">
+        <p className="mr-auto text-sm font-bold">
+          {formatCurrency(totalPrice)}
+        </p>
         <UpdateItemQuantity
           pizzaId={pizzaId}
           currentQuantity={currentQuantity}
